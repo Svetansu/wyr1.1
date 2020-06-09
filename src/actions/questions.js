@@ -1,4 +1,4 @@
-import { _saveQuestionAnswer } from "../utils/_DATA";
+import { _saveQuestionAnswer, _saveQuestion } from "../utils/_DATA";
 import { handleInitialData } from "./shared";
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
@@ -13,7 +13,7 @@ export function receiveQuestions(questions) {
 }
 
   
-export default function handleToggleAnswer (obj) {
+export function handleToggleAnswer (obj) {
     return (dispatch) => {
       return _saveQuestionAnswer({ 
           ...obj
@@ -21,5 +21,15 @@ export default function handleToggleAnswer (obj) {
         .then(() => dispatch(handleInitialData(obj.authedUser)))
         .then(() => console.log(obj))
         
+    }
+}
+
+export default function handleAddQuestion (obj) {
+    return (dispatch, getState) => {
+        const { authedUser } = getState();
+
+        return _saveQuestion({ ...obj, author: authedUser })
+            .then(() => dispatch(handleInitialData(obj.authedUser)))
+            .then(() => console.log({ ...obj, author: authedUser }))
     }
 }
