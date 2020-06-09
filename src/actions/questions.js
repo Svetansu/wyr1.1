@@ -12,24 +12,25 @@ export function receiveQuestions(questions) {
     }
 }
 
-  
+
+
 export function handleToggleAnswer (obj) {
     return (dispatch) => {
-      return _saveQuestionAnswer({ 
-          ...obj
-        })
-        .then(() => dispatch(handleInitialData(obj.authedUser)))
+
+
+        return _saveQuestionAnswer(obj)
+        .then(() => dispatch(handleInitialData()))
         .then(() => console.log(obj))
         
     }
 }
 
-export default function handleAddQuestion (obj) {
+export function handleAddQuestion (obj) {
     return (dispatch, getState) => {
         const { authedUser } = getState();
 
         return _saveQuestion({ ...obj, author: authedUser })
-            .then(() => dispatch(handleInitialData(obj.authedUser)))
+            .then(() => dispatch(handleInitialData()))
             .then(() => console.log({ ...obj, author: authedUser }))
     }
 }

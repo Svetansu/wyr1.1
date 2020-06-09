@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatDate } from "../utils/_DATA";
-import handleToggleAnswer from "../actions/questions"
+import { handleToggleAnswer } from "../actions/questions"
 
 class Question extends Component {
 
@@ -21,7 +21,6 @@ class Question extends Component {
                 <img src={askedBy.avatarURL} alt={question.author}/>
                 <h1>{askedBy.id} {formatDate(question.timestamp)} {answered}</h1>
                     <h4>Would you rather:</h4>
-                    <p>A: {question.optionOne.text}</p>
                     {answered === 'no' && 
                     <div>
                         <button
@@ -32,12 +31,7 @@ class Question extends Component {
                             answer: 'optionOne'
                             })
                         }
-                        ></button>
-                    </div>}
-                    
-                    <p>B: {question.optionTwo.text}</p>
-                    {answered === 'no' && 
-                    <div>
+                        ><p>{question.optionOne.text}</p></button>
                         <button
                         onClick={() =>
                             this.handleAnswer({
@@ -46,7 +40,12 @@ class Question extends Component {
                             answer: 'optionTwo'
                             })
                         }
-                        ></button>
+                        ><p>{question.optionTwo.text}</p></button>
+                    </div>}
+                    {answered === 'yes' && 
+                    <div>
+                        <p>{question.optionOne.text}</p>
+                        <p>{question.optionTwo.text}</p>
                     </div>}
             </div>
         );
@@ -65,6 +64,6 @@ function mapStateToProps ({authedUser, users, questions}, { id }) {
         ? { ...question }
         : null
     };
-  }
+}
 
 export default connect(mapStateToProps)(Question);
