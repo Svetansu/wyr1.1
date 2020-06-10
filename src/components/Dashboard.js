@@ -5,27 +5,56 @@ import QView from './QView';
 
 
 class Dashboard extends Component {
+    state = {
+        showAnswered: false
+    }
+
+    handleSwitch = (e) => {
+        this.setState((prev) => ({
+            showAnswered: !prev.showAnswered
+        }))
+    }
+    
     render() {
-        console.log(this.props);
+        const { answered, unanswered } = this.props;
         return (
             <div>
                 <h1>Dashboard</h1>
-                <ul>
-                    {this.props.questionIds.map((id) => (
-                        <li key={id}>
-                            <QView id={id}/>
-                        </li>
-                    ))}
-                </ul>
+                <button onClick={this.handleSwitch}>
+                    {!this.state.showAnswered
+                        ? <p>view answered questions</p>
+                        : <p>view unanswered questions</p>}
+                </button>
+                {!this.state.showAnswered && 
+                    <ul>
+                        {this.props.unanswered.map((id) => (
+                            <li key={id}>
+                                <QView id={id}/>
+                            </li>
+                        ))}
+                    </ul>}
+                {this.state.showAnswered && 
+                    <ul>
+                        {this.props.answered.map((id) => (
+                            <li key={id}>
+                                <QView id={id}/>
+                            </li>
+                        ))}
+                    </ul>}
             </div>
         );
     }
 }
 
-function mapStateToProps ({ questions }) {
+function mapStateToProps ({ questions, authedUser, users }) {
+    const answered = Object.keys(users[authedUser].answers)
+                        .sort((a,b)=>questions[b].timestamp-questions[a].timestamp);
+    const unanswered = Object.keys(questions)
+                        .filter(que => !answered.includes(que))
+                        .sort((a,b)=>questions[b].timestamp-questions[a].timestamp);
     return {
-      questionIds: Object.keys(questions)
-        .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+      answered,
+      unanswered
     }
 }
 
