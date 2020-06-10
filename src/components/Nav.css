@@ -1,0 +1,41 @@
+nav{
+    font-family: "Product Sans", "Helvetica", "Arial", sans-serif;
+    position: absolute;
+    color: white;
+    right: 3rem;
+    top: 4rem;
+    background: transparent;
+    transform: translateY(-50%);
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+nav ul{
+    margin-right: 1.2rem
+}
+nav ul li{
+    list-style: none;
+    display: inline;
+    margin-left: 1rem;
+}
+nav ul li a{
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+nav ul li a:hover{
+    color: rgba(255,255,255,1);
+}
+nav .but{
+    color: white;
+    margin-right: 1rem;
+    padding: 0.8em;
+    border: 0px;
+    font-family: "Product Sans", "Helvetica", "Arial", sans-serif;
+    border-radius: 1rem;
+    background-color: rgba(220,0,0,0.5);
+  }
+  nav .but:hover{
+    background-color: rgba(220,0,0,1);
+  }

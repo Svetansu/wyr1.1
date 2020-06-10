@@ -1,0 +1,109 @@
+.qview {
+    background-color: rgba(0,0,0, 0.5);
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 30px 40px 30px 40px;
+    margin: 30px;
+    margin-top: 50px;
+}
+
+.qhead {
+    height: 60px;
+    width: 400px;
+}
+
+.qtitle {
+    float: left;
+    padding-top: 0.5rem;
+    margin-right: 1rem
+}
+
+.ab{
+    float: left;
+}
+
+
+
+.qform {
+    margin: 2em;
+}
+
+.fc {
+    background-color: black;
+    margin: 1em auto 2em auto;
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+}
+
+.qb{
+    color: white;
+    margin: 1.5rem auto 0.5rem 0;
+    padding: 0.8em;
+    border: 0px;
+    font-size: 20px;
+    font-family: "Product Sans", "Helvetica", "Arial", sans-serif;
+    border-radius: 1rem;
+    background-color: rgba(220,0,0,0.5);
+}
+
+.qb:hover {
+    background-color: rgba(220,0,0,0.8);
+}
+.qpt {
+    text-align: center;
+}
+
+.poll {
+    text-align: center;
+    margin: 2em 2em 4em 2em;
+}
+
+.vb{
+    color: white;
+    margin: 1.5rem auto 0.5rem 0;
+    font-size: 20px;
+    padding: 0.8em;
+    border: 0px;
+    font-family: "Product Sans", "Helvetica", "Arial", sans-serif;
+    border-radius: 1rem;
+    background-color: rgba(0,220,0,0.3);
+}
+
+.vb:hover {
+    background-color: rgba(0,220,0,0.5);
+}
+
+.qbb{
+    color: white;
+    margin: 0.3em auto 1em auto;
+    padding: 0.8em 1em 0.8em 1em;
+    border: 0px;
+    font-size: 20px;
+    font-family: "Product Sans", "Helvetica", "Arial", sans-serif;
+    border-radius: 1rem;
+    background-color: rgba(220,0,0,0.5);
+}
+
+.qbb:hover {
+    background-color: rgba(220,0,0,0.8);
+}
+
+.qbb:disabled {
+    background-color: rgba(80,80,80,0.5);
+}
+
+
+
+.qbbd{
+    color: white;
+    margin: 0.3em auto 1em auto;
+    padding: 0.8em 1em 1em 1em;
+    border: 0px;
+    font-size: 20px;
+    font-family: "Product Sans", "Helvetica", "Arial", sans-serif;
+    border-radius: 1rem;
+    background-color: rgba(80,80,80,0.5);
+}

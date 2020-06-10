@@ -1,0 +1,21 @@
+.scoreview {
+    background-color: rgba(0,0,0, 0.5);
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 30px 40px 30px 40px;
+    margin: 30px;
+    margin-top: 50px;
+}
+
+.av{
+    float: right;
+}
+
+.lpt {
+    float: right;
+    margin-left: 1rem;
+}
+
+.lt {
+    text-align: center;
+}

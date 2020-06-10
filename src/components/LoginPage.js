@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import './Login.css';
 import { setAuthedUser } from '../actions/authedUsers';
 import { connect } from 'react-redux';
 
+
 class LoginPage extends Component {
     state = {
-        userName: ''
+        userName: "sarahedo"
     }
 
     handleChange = (value) => {
@@ -21,12 +23,17 @@ class LoginPage extends Component {
     }
 
     render() {
-
         const { users } = this.props;
-
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className="login">
+                <h1 className="lheader">Login</h1> 
+                {users && 
+                            Object.keys(users).filter(a => a===this.state.userName)
+                            .map(a => <img className="limg" key={users[a].id} src={users[a].avatarURL} alt={users[a].id}/>)
+                        }
+                        <br />
+                        <h2>Select User:</h2>
+                <form onSubmit={this.handleSubmit} className="lform">
                     <select onChange={(e) => this.handleChange(e.target.value)}>
                         {users && 
                             Object.keys(users).map(a => (
@@ -36,7 +43,8 @@ class LoginPage extends Component {
                             ))
                         }
                     </select>
-                    <button type="submit">GO</button>
+                    <br />
+                    <button type="submit" className="lbtn">GO</button>
                 </form>
             </div>
         );

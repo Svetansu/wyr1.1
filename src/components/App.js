@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import Dashboard from './Dashboard';
@@ -17,28 +17,32 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div className="App">
-        <LoadingBar />
-        {this.props.authedUser === null
-              ? <LoginPage />
-              : <div>
-                  <div>
-                    <Navbar />
-                  </div>
-                  <Route path='/' exact component={Dashboard} />
-                  <Route path='/questions/:id' exact component={AnswerHere}/>
-                  <Route path='/add' exact component={NewQuestion} />
-                  <Route path='/leaderboard' exact component={Leaderboard} />
-                </div>}
-      </div>
+        <Fragment>
+          <LoadingBar />
+          <div className="apphead">
+            <h1 className="headOne">Would You Rather?</h1>
+          </div>
+          {this.props.authedUser === null
+                ? <LoginPage />
+                : <div className="app">
+                    <div>
+                      <Navbar authedUser={this.props.authedUser} users={this.props.users}/>
+                    </div>
+                    <Route path='/' exact component={Dashboard} />
+                    <Route path='/questions/:id' exact component={AnswerHere}/>
+                    <Route path='/add' exact component={NewQuestion} />
+                    <Route path='/leaderboard' exact component={Leaderboard} />
+                  </div>}
+        </Fragment>
       </Router>
     );
   }
 }
 
-function mapStateToProps ({ authedUser }) {
+function mapStateToProps ({ authedUser, users }) {
   return {
-    authedUser
+    authedUser,
+    users
   }
 };
 

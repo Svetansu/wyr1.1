@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Question from './Question';
 import QView from './QView';
 
 
@@ -19,23 +18,25 @@ class Dashboard extends Component {
         const { answered, unanswered } = this.props;
         return (
             <div>
-                <h1>Dashboard</h1>
-                <button onClick={this.handleSwitch}>
+                {!this.state.showAnswered
+                        ? <h1 className="dhead">Unanswered Questions</h1>
+                        : <h1 className="dhead">Answered Questions</h1>}
+                <button onClick={this.handleSwitch} className="switch">
                     {!this.state.showAnswered
                         ? <p>view answered questions</p>
                         : <p>view unanswered questions</p>}
                 </button>
                 {!this.state.showAnswered && 
-                    <ul>
-                        {this.props.unanswered.map((id) => (
+                    <ul className="dash">
+                        {unanswered.map((id) => (
                             <li key={id}>
                                 <QView id={id}/>
                             </li>
                         ))}
                     </ul>}
                 {this.state.showAnswered && 
-                    <ul>
-                        {this.props.answered.map((id) => (
+                    <ul className="dash">
+                        {answered.map((id) => (
                             <li key={id}>
                                 <QView id={id}/>
                             </li>
