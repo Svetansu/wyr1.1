@@ -4,6 +4,7 @@ import { formatDate } from "../utils/_DATA";
 import { handleToggleAnswer } from "../actions/questions"
 import "./question.css";
 import Avatar from "@material-ui/core/Avatar";
+import ErrorPage from "./ErrorPage";
 
 class Question extends Component {
 
@@ -16,6 +17,10 @@ class Question extends Component {
         
         const { authedUser, answered, users, question } = this.props;
         const askedBy = users[question.author];
+
+        if (!question) {
+            return <ErrorPage />
+        }  
 
         const oneVotes = question.optionOne.votes.length;
         const twoVotes = question.optionTwo.votes.length;

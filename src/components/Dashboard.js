@@ -17,7 +17,7 @@ class Dashboard extends Component {
     render() {
         const { answered, unanswered } = this.props;
         return (
-            <div>
+            <div className="app">
                 {!this.state.showAnswered
                         ? <h1 className="dhead">Unanswered Questions</h1>
                         : <h1 className="dhead">Answered Questions</h1>}
