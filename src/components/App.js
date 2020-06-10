@@ -22,12 +22,12 @@ class App extends Component {
           <div className="apphead">
             <h1 className="headOne">Would You Rather?</h1>
           </div>
+          <div>
+              <Navbar authedUser={this.props.authedUser} users={this.props.users}/>
+          </div>
           {this.props.authedUser === null
                 ? <LoginPage />
                 : <div className="app">
-                    <div>
-                      <Navbar authedUser={this.props.authedUser} users={this.props.users}/>
-                    </div>
                     <Route path='/' exact component={Dashboard} />
                     <Route path='/questions/:id' exact component={AnswerHere}/>
                     <Route path='/add' exact component={NewQuestion} />

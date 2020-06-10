@@ -16,12 +16,12 @@ class Question extends Component {
     render() {
         
         const { authedUser, answered, users, question } = this.props;
-        const askedBy = users[question.author];
 
         if (!question) {
             return <ErrorPage />
         }  
 
+        const askedBy = users[question.author];
         const oneVotes = question.optionOne.votes.length;
         const twoVotes = question.optionTwo.votes.length;
         const allVotes = oneVotes + twoVotes;

@@ -1,4 +1,4 @@
-# Would-You-Rather Project v1.1
+# Would-You-Rather Project v1.2
 
 This project is my second submission for the "Would You Rather?" react-redux application, a project for the Udacity React Developer Nanodegree.
 

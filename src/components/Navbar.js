@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./Nav.css";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
@@ -31,12 +31,17 @@ class Navbar extends Component {
                         </NavLink>
                     </li>
                 </ul>
-                    <div>
-                        <button onClick={this.handleOnClick} className="but">
-                            LOGOUT
-                        </button>
-                    </div>
-                    <Avatar alt={users[authedUser].name+' profile picture'} src={users[authedUser].avatarURL} />
+                    {authedUser &&
+                        <Fragment>
+                            <div>
+                            <button onClick={this.handleOnClick} className="but">
+                                LOGOUT
+                            </button>
+                            </div>
+                            <Avatar alt={users[authedUser].name+' profile picture'} src={users[authedUser].avatarURL} />
+                        </Fragment>
+                            
+                        }
             </nav>
         )
     }
