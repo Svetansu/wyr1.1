@@ -15,8 +15,9 @@ I have added some information below to make understanding my work easier:
             - Navbar.js: Component which renders links ad buttons to be able to navigate through different components of the application.
             - NewQuestion.js: The component which renders the functionality to post a new question.
             - Question.js: Component used to fetch a question from the fake database.
-            - QuestionDetails.js: The component used to render questions.
-            - Signin.js: The initial component which allows users to sign-in to the application.
+            - QView.js: Component used to display question snippets on the Dashboard.
+            - AnswerHere.js: The component used to render questions on the 'answer question' page.
+            - Login.js: The initial component which allows users to Login to the application.
 
 Some important features of the project include:
     
